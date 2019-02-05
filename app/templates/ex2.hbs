@@ -1,0 +1,33 @@
+{{outlet}}
+
+<h1>Service</h1>
+<div>
+  <p>Choisissez les éléments à inclure</p>
+  <p>{{model.countActive.length}} services sélectionnés</p>
+</div>
+
+{{#each model.services as |service|}}
+  <button {{action "toggleActive" service model }} type="button" class="btn btn-primary btn-lg btn-block" style="border:none; background-color: {{if service.active "limegreen" "lightslategrey"}}">{{service.name}}</button>
+{{/each}}
+
+
+<div>
+  <p>Total : {{model.sumActive}} €</p>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        {{input type="checkbox" name="promo" checked=false}}
+      </div>
+    </div>
+    {{input type="text" value=this.promo class="form-control"}}
+  </div>
+
+  {{#if model.remise}}
+
+    <p>Remise : {{model.remise}} €</p>
+
+    <p>Total avecc remise : {{model.totalRemise}} €</p>
+  {{/if}}
+
+</div>
