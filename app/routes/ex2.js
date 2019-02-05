@@ -1,14 +1,42 @@
 import Route from '@ember/routing/route';
 import EmberObject, { computed } from '@ember/object';
-import { filterBy } from '@ember/object/computed';
 
 const Services = EmberObject.extend({
   services: null,
-  codePromo: null,
-  remise: 0,
-  totalRemise: 0,
-  countActive: filterBy('services', 'active', true),
-  sumActive: 0,
+  remise: computed("promo", "services.@each.active", function(){
+    if(this.get('services').filter(service => service.active).length > 0)
+    {
+      let promos = this.get("codePromo");
+      let promo = this.get("promo");
+
+      this.set('totalRemise', this.sumActive-promos[promo]);
+      return promos[promo];
+    }
+    return 0;
+
+  }),
+  countActive:  computed("services.@each.active", function(){
+    let nbService = this.get('services').filter(service => service.active).length;
+    if(nbService == 0)
+    {
+      return 'aucun service';
+    }
+    else if(nbService == 1)
+    {
+      return nbService + " service selectionné";
+    }
+      return nbService + " services selectionnés";
+
+    }),
+  sumActive: computed("services.@each.active", function(){
+    let somme = 0;
+    this.get('services').forEach(service => {
+      if(service.active){
+        somme += service.price;
+      }
+    });
+    return somme;
+  }),
 })
 
 export default Route.extend({
@@ -40,15 +68,6 @@ export default Route.extend({
       }
 
     });
-
-    let total = 0;
-    service.countActive.forEach(function(s){
-      if (s.active){
-        total += s.price;
-      }
-    });
-
-    service.set("sumActive", total);
 
     return service;
   }
