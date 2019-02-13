@@ -5,19 +5,19 @@
   </div>
   <div class="col-0.1" style="display:flex; flex-direction: column; justify-content: space-around;">
 
-    {{#bs-button block=true}}
+    {{#bs-button block=true onClick=(action "addToIncluded")}}
       {{fa-icon "step-forward"}}
     {{/bs-button}}
 
-    {{#bs-button block=true}}
+    {{#bs-button block=true onClick=(action "addAllToIncluded")}}
       {{fa-icon "fast-forward"}}
     {{/bs-button}}
 
-    {{#bs-button block=true}}
+    {{#bs-button block=true onClick=(action "removeFromIncluded")}}
       {{fa-icon "step-backward"}}
     {{/bs-button}}
 
-    {{#bs-button block=true}}
+    {{#bs-button block=true onClick=(action "RemoveAllFromIncluded")}}
       {{fa-icon "fast-backward"}}
     {{/bs-button}}
 

@@ -64,7 +64,9 @@ export default Route.extend({
         }
       ],
       includedItems_:[],
-      dispoItemsIds_: []
+      dispoItemsIds_: [],
+      includedItemsIds_: [],
+      includedItems:[]
     });
     return elements;
   }

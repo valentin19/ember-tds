@@ -2,15 +2,25 @@ import Controller from '@ember/controller';
 import {get} from '@ember/object';
 
 export default Controller.extend({
-  copyArrayElements(from,to){
-    to.push.apply(to, from);
+  copyArrayElements(fromName,toName){
+    let model = this.get("model");
+    let from = get(model, fromName);
+    let to = get(model, toName);
+    debugger;
+    to.pushObjects(from);
   },
   actions:{
     addToIncluded(){
-      let model = this.modelFor(this.routeName);
-      let dispoItems_ = get(model, 'dispoItems');
-      let includedItems = get(model, 'IncludedItems');
-      this.copyArrayElements(dispoItems_, includedItems);
+      this.copyArrayElements('dispoItems_', 'includedItems');
+    },
+    addAllToIncluded(){
+      this.copyArrayElements('dispoItems', 'includedItems');
+    },
+    removeFromIncluded(){
+      this.copyArrayElements('includedItems_', 'dispoItems');
+    },
+    RemoveAllFromIncluded(){
+      this.copyArrayElements('includedItems', 'dispoItems');
     }
   }
 });
