@@ -1,0 +1,29 @@
+
+<div class="row">
+  <div class="col-sm">
+    {{multi-select elements=model.dispoItems selectedIds=model.dispoItemsIds_}}
+  </div>
+  <div class="col-0.1" style="display:flex; flex-direction: column; justify-content: space-around;">
+
+    {{#bs-button block=true}}
+      {{fa-icon "step-forward"}}
+    {{/bs-button}}
+
+    {{#bs-button block=true}}
+      {{fa-icon "fast-forward"}}
+    {{/bs-button}}
+
+    {{#bs-button block=true}}
+      {{fa-icon "step-backward"}}
+    {{/bs-button}}
+
+    {{#bs-button block=true}}
+      {{fa-icon "fast-backward"}}
+    {{/bs-button}}
+
+  </div>
+  <div class="col-sm">
+    {{multi-select elements=model.includeItems selectedIds=model.includedItemsIds_}}
+  </div>
+</div>
+{{outlet}}
