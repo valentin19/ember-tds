@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+    {{input class="form-control" value=model.copy.nom placeholder="Nom"}}
+  </div>
+  <div class="col">
+    {{input class="form-control" value=model.copy.prenom placeholder="Prénom"}}
+  </div>
+  <div class="col">
+    {{input class="form-control" value=model.copy.email placeholder="Email"}}
+  </div>
+  <div class="col">
+    <button {{action "saveContact" model}} class="btn btn-success">
+      Valider
+    </button>
+  </div>
+</div>
+
+{{outlet}}

@@ -1,5 +1,5 @@
-import LSAdapter from 'ember-localstorage-adapter';
+import Adapter from 'ember-local-storage/adapters/local';
 
-export default LSAdapter.extend({
-  namespace: 'contact-app'
+export default Adapter.extend({
+  modelNamespace: 'contact-app'
 });

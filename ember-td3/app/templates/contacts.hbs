@@ -1,0 +1,54 @@
+<h2>Contacts</h2>
+<div>
+  {{#link-to 'contacts.add' class="btn btn-primary"}}
+    Ajouter un contact...
+  {{/link-to}}
+  {{#if model.deletedsCount}}
+    <button {{action "cancelDeletion" model.deleteds}} class="btn btn-danger">
+      {{fa-icon "remove"}}
+      Annuler la suppression ({{model.deletedsCount}})
+    </button>
+    <button {{action "confirmDeletion" model.deleteds}} class="btn btn-success">
+      {{fa-icon "exclamation-circle"}}
+      Confirmer la suppression ({{model.deletedsCount}})
+    </button>
+  {{/if}}
+</div>
+
+
+
+<div class="input-group mb-3">
+  {{input value=filtre class="form-control" placeholder="Filtrer" aria-label="search" type="text" }}
+  <div class="input-group-append">
+    <button class="input-group-text"></button>
+  </div>
+</div>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Email</th>
+    <th  class="text-right" scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each model.contacts as |contact|}}
+    <tr>
+      <td>{{contact.nom}}</td>
+      <td>{{contact.prenom}}</td>
+      <td>{{contact.email}}</td>
+      <td class="text-right">
+        {{#link-to "contacts.edit" contact class="btn btn-secondary btn-sm"}}
+          {{fa-icon "edit"}}
+        {{/link-to}}
+        <button {{action "delete" contact}} class="btn btn-danger btn-sm">
+          {{fa-icon "remove"}}
+        </button>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+{{outlet}}
