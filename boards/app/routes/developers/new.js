@@ -8,6 +8,9 @@ export default Route.extend({
     save(dev){
       dev = this.store.createRecord('developer', dev.copy);
       dev.save().then(this.transitionTo('developers'));
+    },
+    annuler(){
+      this.transitionTo('developers');
     }
   }
 });

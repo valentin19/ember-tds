@@ -1,0 +1,15 @@
+
+
+<div class="ui icon message">
+  <i class="notched circle loading icon"></i>
+  <div class="content">
+    <div class="header">
+      Confirmer la suppression de "{{model.copy.identity}}" ?
+    </div>
+    <button {{action "save" model}} class="ui green button">Valider</button>
+    <button {{action "annuler"}} class="ui button">Cancel</button>
+  </div>
+</div>
+
+
+{{outlet}}

@@ -1,7 +1,8 @@
 <div class="ui header">Ajout/modif dev</div>
 
 {{input value=model.copy.identity class="ui input"}}
-<button {{action "save" model}} class="ui button">Enregistrer</button>
+<button {{action "save" model}} class="ui green button">Valider</button>
+<button {{action "annuler"}} class="ui button">Cancel</button>
 
 
 {{outlet}}
