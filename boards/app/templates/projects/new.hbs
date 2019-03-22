@@ -1,0 +1,36 @@
+
+<form class="ui form">
+  <div class="field">
+    <label>Name</label>
+    {{input value=model.copy.name type="text" class="ui input"}}
+  </div>
+
+  <div class="field">
+    <label>Descriptif</label>
+    {{textarea value=model.copy.descriptif class="ui input"}}
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label>StartDate</label>
+      {{input value=model.copy.creationDate type="date" class="ui input"}}
+    </div>
+
+
+    <div class="field">
+      <label>DueDate</label>
+      {{input value=model.copy.dueDate type="date" class="ui input"}}
+    </div>
+
+  </div>
+
+  <div class="field">
+    <label>Owner</label>
+    {{input value=model.copy.owner type="text" class="ui input"}}
+  </div>
+
+  <button {{action "save" model}} class="ui green button">Valider</button>
+  <button {{action "annuler"}} class="ui button">Cancel</button>
+</form>
+
+{{outlet}}
