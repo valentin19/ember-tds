@@ -1,7 +1,12 @@
 # ember-tds
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repository contains different project in ember framework.
+
+Ember tds contains a page that counts the number of characters in a message as well as a product selection page.
+
+Ember td3 contains a contact management application.
+
+And boards is a project management application.
 
 ## Prerequisites
 
