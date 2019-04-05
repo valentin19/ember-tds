@@ -9,9 +9,13 @@ export default Route.extend({
   },
   actions:{
     save(model){
-      //model.setAttribute(JSON.parse(JSON.stringify(model.copy)));
-      model.set("identity", model.copy.identity);
-      //model.save().then(this.transitionTo('projects'));
+      model.set("name", model.copy.name);
+      model.set("descriptif", model.copy.descriptif);
+      model.set("creationDate", model.copy.creationDate);
+      model.set("dueDate", model.copy.dueDate);
+      model.set("owner", model.copy.owner);
+
+      model.save().then(this.transitionTo('projects'));
     },
     annuler(){
       this.transitionTo('projects');

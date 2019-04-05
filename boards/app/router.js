@@ -15,7 +15,14 @@ Router.map(function() {
   this.route('projects', function() {
     this.route('new');
     this.route('edit', {path: "edit/:project_id"});
-    this.route('delete', {path: "edit/:project_id"});
+    this.route('delete', {path: "delete/:project_id"});
+  });
+  this.route('project', {path: "project/:project_id"});
+
+  this.route('', function() {
+    this.route('story', function() {
+      this.route('new', {path: "new/:project_id"});
+    });
   });
 });
 

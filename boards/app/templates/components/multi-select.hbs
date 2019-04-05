@@ -1,0 +1,5 @@
+{{input value=model.copy.owner type="hidden" class="ui input"}}
+
+{{#each elements as |elm|}}
+  <option value={{elm.id}}>{{elm.identity}}</option>
+{{/each}}

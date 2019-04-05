@@ -1,0 +1,32 @@
+
+{{#link-to "story.new" project class="ui teal button"}}Ajouter une story{{/link-to}}
+
+<table class="ui bottom attached table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Descriptif</th>
+    <th>Owner</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+
+  {{#each model as |project|}}
+    <tr>
+      <td>{{project.code}}</td>
+      <td>{{project.descriptif}}</td>
+      <td>{{project.owner.identity}}</td>
+      <td>
+        {{#link-to "story.edit" project class="ui basic circular icon button"}}
+          <i class="ui edit grey icon"></i>
+        {{/link-to}}
+
+      </td>
+    </tr>
+  {{/each}}
+
+  </tbody>
+</table>
+
+{{outlet}}

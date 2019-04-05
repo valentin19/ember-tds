@@ -4,4 +4,9 @@ export default Route.extend({
   model(){
     return this.store.findAll("project");
   },
+  actions:{
+    delete(dev){
+      dev.destroyRecord();
+    }
+  }
 });

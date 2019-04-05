@@ -1,8 +1,7 @@
-
 <form class="ui form">
   <div class="field">
-    <label>Name</label>
-    {{input value=model.copy.name type="text" class="ui input"}}
+    <label>Code</label>
+    {{input value=model.copy.code type="text" class="ui input"}}
   </div>
 
   <div class="field">
@@ -10,23 +9,23 @@
     {{textarea value=model.copy.descriptif class="ui input"}}
   </div>
 
-  <div class="two fields">
-    <div class="field">
-      <label>StartDate</label>
-      {{input value=model.copy.creationDate type="date" class="ui input"}}
-    </div>
-
-
-    <div class="field">
-      <label>DueDate</label>
-      {{input value=model.copy.dueDate type="date" class="ui input"}}
-    </div>
-
+  <div class="field">
+    <label>Developeur</label>
+    {{multi-select elements=model.developers selectedIds=model.copy.owner}}
   </div>
 
-  <div class="field">
-    <label>Owner</label>
-    {{multi-select elements=model.developers selectedIds=model.copy.owner}}
+  <div class="two fields">
+    <div class="field">
+      <label>tags</label>
+      {{input value=model.copy.tags type="date" class="ui input"}}
+    </div>
+
+
+    <div class="field">
+      <label>tasks</label>
+      {{input value=model.copy.tasks type="date" class="ui input"}}
+    </div>
+
   </div>
 
   <button {{action "save" model}} class="ui green button">Valider</button>

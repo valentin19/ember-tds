@@ -9,6 +9,7 @@
     <th>Descriptif</th>
     <th>StartDate</th>
     <th>DueDate</th>
+    <th>Owner</th>
     <th></th>
   </tr>
   </thead>
@@ -18,14 +19,15 @@
     <tr>
       <td>{{project.name}}</td>
       <td>{{project.descriptif}}</td>
-      <td>{{project.startdate}}</td>
-      <td>{{project.duedate}}</td>
+      <td>{{moment-format project.startDate 'DD-MM-YYYY'}}</td>
+      <td>{{moment-format project.dueDate 'DD-MM-YYYY'}}</td>
+      <td>{{project.owner.identity}}</td>
       <td>
-        {{#link-to "developers.edit" project class="ui basic circular icon button"}}
+        {{#link-to "projects.edit" project class="ui basic circular icon button"}}
           <i class="ui edit grey icon"></i>
         {{/link-to}}
 
-        {{#link-to "developers.delete" project class="ui basic circular icon button"}}
+        {{#link-to "projects.delete" project class="ui basic circular icon button"}}
           <i class="ui times red icon"></i>
         {{/link-to}}
       </td>
