@@ -23,6 +23,9 @@
       <td>{{moment-format project.dueDate 'DD-MM-YYYY'}}</td>
       <td>{{project.owner.identity}}</td>
       <td>
+        {{#link-to "project" project class="ui basic circular icon button"}}
+          <i class="ui share grey icon"></i>
+        {{/link-to}}
         {{#link-to "projects.edit" project class="ui basic circular icon button"}}
           <i class="ui edit grey icon"></i>
         {{/link-to}}

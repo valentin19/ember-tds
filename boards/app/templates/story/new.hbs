@@ -11,18 +11,34 @@
 
   <div class="field">
     <label>Developeur</label>
-    {{input value=model.developer type="hidden" class="ui input" id="developer"}}
-    <select>
-      {{#each model.developers as |elm|}}
-        <option onClick="document.getElementById('developer').value = this.id;" id={{elm.id}} value={{elm.id}}>{{elm.identity}}</option>
-      {{/each}}
-    </select>
+    {{#ui-dropdown class="selection" selected=model.copy.developer onChange=(action (mut model.copy.developer)) as |execute mapper|}}
+      <div class="default text">Developer</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        {{#each model.developers as |developer|}}
+          <div data-value="{{map-value mapper developer}}" class="item">
+            {{developer.identity}}
+          </div>
+        {{/each}}
+      </div>
+    {{/ui-dropdown}}
   </div>
 
   <div class="two fields">
     <div class="field">
       <label>tags</label>
-      {{input value=model.tags type="text" class="ui input"}}
+      {{#ui-dropdown class="fluid multiple selection" selected=model.copy.tag onChange=(action (mut model.copy.tag)) as |execute mapper|}}
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <div class="menu">
+          {{#each model.tags as |item|}}
+            <div data-value="{{map-value mapper item}}" class="item">
+              <i class="{{item.iso2}} flag"></i>
+              {{item.title}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
     </div>
 
 

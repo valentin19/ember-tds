@@ -12,11 +12,11 @@
   </thead>
   <tbody>
 
-  {{#each model as |story|}}
+  {{#each model.stories as |story|}}
     <tr>
       <td>{{story.code}}</td>
       <td>{{story.descriptif}}</td>
-      <td>{{story.owner.identity}}</td>
+      <td>{{story.developer.identity}}</td>
       <td>
         {{#link-to "story.edit" project class="ui basic circular icon button"}}
           <i class="ui edit grey icon"></i>

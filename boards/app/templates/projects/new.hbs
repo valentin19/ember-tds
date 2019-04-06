@@ -26,7 +26,17 @@
 
   <div class="field">
     <label>Owner</label>
-    {{multi-select elements=model.developers selectedIds=model.copy.owner}}
+    {{#ui-dropdown class="selection" selected=model.copy.owner onChange=(action (mut model.copy.owner)) as |execute mapper|}}
+      <div class="default text">Developer</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        {{#each model.developers as |developer|}}
+          <div data-value="{{map-value mapper developer}}" class="item">
+            {{developer.identity}}
+          </div>
+        {{/each}}
+      </div>
+    {{/ui-dropdown}}
   </div>
 
   <button {{action "save" model}} class="ui green button">Valider</button>
