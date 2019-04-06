@@ -1,29 +1,29 @@
 <form class="ui form">
   <div class="field">
     <label>Code</label>
-    {{input value=model.copy.code type="text" class="ui input"}}
+    {{input value=model.code type="text" class="ui input"}}
   </div>
 
   <div class="field">
     <label>Descriptif</label>
-    {{textarea value=model.copy.descriptif class="ui input"}}
+    {{textarea value=model.descriptif class="ui input"}}
   </div>
 
   <div class="field">
     <label>Developeur</label>
-    {{multi-select elements=model.developers selectedIds=model.copy.owner}}
+    {{multi-select elements=model.developers selectedIds=model.owner}}
   </div>
 
   <div class="two fields">
     <div class="field">
       <label>tags</label>
-      {{input value=model.copy.tags type="date" class="ui input"}}
+      {{input value=model.tags type="text" class="ui input"}}
     </div>
 
 
     <div class="field">
       <label>tasks</label>
-      {{input value=model.copy.tasks type="date" class="ui input"}}
+      {{input value=model.tasks type="text" class="ui input"}}
     </div>
 
   </div>

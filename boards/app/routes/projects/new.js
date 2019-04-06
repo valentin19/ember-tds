@@ -4,8 +4,8 @@ import {get} from '@ember/object';
 export default Route.extend({
   model(){
     return Ember.RSVP.hash({
-      copy:{},
-      developers: this.store.findAll("developer")
+      developers: this.store.findAll("developer"),
+      project: this.get("id"),
     });
   },
   actions:{

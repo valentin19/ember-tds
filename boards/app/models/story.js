@@ -6,6 +6,6 @@ export default DS.Model.extend({
   developer: DS.belongsTo("developer"),
   step: DS.belongsTo("step"),
   project: DS.belongsTo("project"),
-  tags: DS.hasMany("tag", {inverse:"story"}),
+  tags: DS.hasMany("tag", {inverse:"stories"}),
   tasks: DS.belongsTo("task")
 });
