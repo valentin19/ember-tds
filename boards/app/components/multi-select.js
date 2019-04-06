@@ -6,9 +6,5 @@ export default Component.extend({
   classNames: ['form-control'],
   selectedIds:'',
 
-  selectedElements: computed('selectedIds.[]', function() {
-    return this.get('selectedIds').map((id) => {
-      return this.get('elements').findBy('id', id);
-    });
-  }),
+
 });

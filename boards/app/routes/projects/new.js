@@ -5,7 +5,6 @@ export default Route.extend({
   model(){
     return Ember.RSVP.hash({
       developers: this.store.findAll("developer"),
-      project: this.get("id"),
     });
   },
   actions:{

@@ -10,8 +10,9 @@ export default Route.extend({
   actions: {
     save(story){
       this.set("tags", null);
-      story = this.store.createRecord('story', story.copy);
-      story.save().then(this.transitionTo('projects'));
+      story = this.store.createRecord('story', story);
+      console.log(story.developer);
+      story.save();//.then(this.transitionTo('projects'));
     },
     annuler(){
       this.transitionTo('projects');

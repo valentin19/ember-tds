@@ -11,7 +11,12 @@
 
   <div class="field">
     <label>Developeur</label>
-    {{multi-select elements=model.developers selectedIds=model.owner}}
+    {{input value=model.developer type="hidden" class="ui input" id="developer"}}
+    <select>
+      {{#each model.developers as |elm|}}
+        <option onClick="document.getElementById('developer').value = this.id;" id={{elm.id}} value={{elm.id}}>{{elm.identity}}</option>
+      {{/each}}
+    </select>
   </div>
 
   <div class="two fields">
